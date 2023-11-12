@@ -105,9 +105,9 @@ button:hover {
 }
 
 
-.modules-center, .modules-left, .modules-right {
-	background-color: $background;
+.modules-center, .modules-right {
 	border-radius:15px;
+	background-color: $background;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -201,12 +201,24 @@ label:focus {
 #custom-media {
     /* background-color: #66cc99; */
     /* color: #2a5c45; */
-    min-width: 100px;
+	background-color: $background;
+	border-radius:15px;
+	padding-left:10px;
+	padding-right:10px;
+	min-width: 100px;
 }
 
-#custom-media.custom-spotify {
-    background-color: #66cc99;
+#custom-headset-battery {
+	background-color: $background;
+	border-radius:15px;
+	padding-left:10px;
+	padding-right:10px
 }
+
+
+// #custom-media.custom-spotify {
+//     background-color: #66cc99;
+// }
 
 #custom-media.custom-vlc {
     background-color: #ffa000;
