@@ -1,7 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/mehdi/Documents/latexmath
 - /home/mehdi/Documents/projects/HackBrowserData
 - /home/mehdi/Documents/projects/EvilElectron
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+- q
 hidecommandlog: false
+ignorewhitespaceindiffview: false
