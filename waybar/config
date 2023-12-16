@@ -5,8 +5,10 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
 	"layer": "top",
-    "modules-left": ["custom/media", "custom/headset-battery"],
-    "modules-center": ["hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["custom/media"],
+    "margin-top": 8,
+
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "backlight", "cpu", "keyboard-state", "battery", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
@@ -28,14 +30,14 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-	    "5": "",
-	    "6": "",
-	    "7": "7",
-	    "8": "8",
+            //"1": "",
+            //"2": "",
+            //"3": "",
+            //"4": "",
+	    //"5": "",
+	    //"6": "",
+	    //"7": "7",
+	    //"8": "8",
             "urgent": "",
             "focused": "",
             "default": ""
