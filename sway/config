@@ -24,9 +24,20 @@ set $menu "rofi -show drun"
 
 # screenshots
 bindsym --to-code Print exec "grim - | wl-copy"
-bindsym --to-code Shift+Print exec "grim -g '$(slurp)' - wl-copy"
+bindsym --to-code Shift+Print exec "slurp | grim -g - - | wl-copy"
 # bindsym --to-code 
 # bindsym --to-code 
+
+
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86MonBrightnessUp exec light -A 2
+bindsym XF86MonBrightnessDown exec light -U 2
+
+bindsym --to-code $mod+n exec neovide
 
 default_border pixel 2
 default_floating_border none
@@ -41,7 +52,6 @@ exec udiskie
 exec keepassxc
 exec jamesdsp
 exec_always autotiling
-exec_always waybar
 
 ### Output configuration
 #
@@ -59,9 +69,9 @@ output * bg ~/.wallpaper/wallpapers/landscapes/evening-sky.png fill
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock --screenshots --clock --effect-blur 5x5 --indicator' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock --screenshots --clock --effect-blur 5x5 --indicator'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -114,8 +124,7 @@ input type:keyboard {
     bindsym --to-code $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym --to-code $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
+    bindsym --to-code $mod+Shift+e exec rofi -show power-menu -modi power-menu:rofi-power-menu
 # Moving around:
 #
     # Move your focus around
@@ -232,7 +241,8 @@ bindsym --to-code $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-# bar {
+bar {
+	swaybar_command waybar
 #     position top
 #
 #     # When the status_command prints a new line to stdout, swaybar updates.
@@ -244,6 +254,6 @@ bindsym --to-code $mod+r mode "resize"
 #         background #323232
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
-# }
+}
 
 include ~/.config/sway/config.d/*

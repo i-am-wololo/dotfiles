@@ -1,8 +1,17 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/mehdi/.config
+- /home/mehdi/Documents/cours
+- /home/mehdi/.config/nvim
+- /home/mehdi/Documents/projects/releases-feed
 startuppopupversion: 5
+lastversion: 0.41.0
 customcommandshistory:
 - q
 hidecommandlog: false
 ignorewhitespaceindiffview: false
+diffcontextsize: 3
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always

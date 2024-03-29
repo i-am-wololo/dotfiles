@@ -1,5 +1,6 @@
 [global]
 frame_color = "#89B4FA"
+font = "Hack Nerd Font 10"
 separator_color = frame
 corner_radius = 12
 
@@ -18,6 +19,7 @@ frame_color = "#FAB387"
 
 [spotify]
 appname = Spotify
+font = "Hack Nerd Font 14"
 min_icon_size = 64
 max_icon_size = 128
 
