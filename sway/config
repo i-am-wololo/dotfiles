@@ -4,6 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -14,19 +15,27 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term footclient
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu "rofi -show drun" 
+set $menu "rofi -show drun"
 
+
+# Display configuration
+
+output * {
+	bg ~/.wallpapers/rose_pine_contourline.png fill
+	mode 1920x1080
+
+}
 
 # screenshots
 bindsym --to-code Print exec "grim - | wl-copy"
 bindsym --to-code Shift+Print exec "slurp | grim -g - - | wl-copy"
-# bindsym --to-code 
-# bindsym --to-code 
+# bindsym --to-code
+# bindsym --to-code
 
 
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -37,8 +46,9 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86MonBrightnessUp exec light -A 2
 bindsym XF86MonBrightnessDown exec light -U 2
 
-bindsym --to-code $mod+n exec neovide
+bindsym  --to-code $mod+z exec rofi -show window
 
+bindsym --to-code $mod+n exec /home/mehdibenahmed/.cargo/bin/neovide
 default_border pixel 2
 default_floating_border none
 # smart_gaps inverse_outer
@@ -48,16 +58,16 @@ gaps outer 12
 # exec "swaybg -i .wallpaper/wallpapers/mandelbrot/mandelbrot_full_flamingo.png -m center"
 exec polkit-dumb-agent
 exec dicsord-rpc-extension
+exec dunst
 exec udiskie
 exec keepassxc
 exec jamesdsp
-exec_always autotiling
+exec_always /home/mehdibenahmed/.bin/autotiling
+exec_always foot --server
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.wallpaper/wallpapers/landscapes/evening-sky.png fill
-#
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -69,9 +79,9 @@ output * bg ~/.wallpaper/wallpapers/landscapes/evening-sky.png fill
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock --screenshots --clock --effect-blur 5x5 --indicator' \
+         timeout 300 'swaylock -C ~/.local/share/themes/rose-pine/swaylock/rose-pine --screenshots --clock --effect-blur 5x5 --indicator --daemonize' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock --screenshots --clock --effect-blur 5x5 --indicator'
+         before-sleep 'swaylock -C ~/.local/share/themes/rose-pine/swaylock/rose-pine --screenshots --clock --effect-blur 5x5 --indicator --daemonize'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -124,8 +134,8 @@ input type:keyboard {
     bindsym --to-code $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym --to-code $mod+Shift+e exec rofi -show power-menu -modi power-menu:rofi-power-menu
-# Moving around:
+    bindsym --to-code $mod+Shift+e exec "rofi -show power-menu -modi power-menu:'rofi-power-menu  --choices=shutdown/suspend/reboot/logout/lockscreen'"
+# Moving around':
 #
     # Move your focus around
     bindsym --to-code $mod+$left focus left
@@ -255,5 +265,9 @@ bar {
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 }
+exec /usr/libexec/xfce-polkit
 
-include ~/.config/sway/config.d/*
+include ~/.config/sway/config.d/rose-pine.conf
+include ~/.config/sway/config.d/50-systemd-user.conf
+include ~/.config/sway/config.d/rules.conf
+

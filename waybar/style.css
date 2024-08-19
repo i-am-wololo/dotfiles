@@ -1,9 +1,9 @@
-@import "catppuccin/themes/mocha.css";
-
+/* @import "./gruvbox-css/src/gruvbox-dark.css"; */
+@import "./rosepine/rose-pine.css";
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
-  font-family: Hack Nerd Font;
+  font-family: "FiraCode Nerd Font Mono";
   font-size: 12px;
   /* background-color */
 }
@@ -13,7 +13,7 @@ window#waybar {
   /* background-color: rgba(0, 0, 0, 0); */
   /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
   background-color: @base;
-  color: @text;
+  color: #fbf1c7;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -55,7 +55,9 @@ button:hover {
 
 #workspaces button {
   padding: 0 5px;
+
   background-color: transparent;
+  color: #fbf1c7;
 }
 
 #workspaces button:hover {
@@ -64,11 +66,11 @@ button:hover {
 
 
 #workspaces button.focused {
-	color: @teal
+	color: #458588;
 }
 
 #workspaces button.urgent {
-	color: @red;
+	color: #cc2412;
   	/* border-radius: 50px; */
 }
 
@@ -103,14 +105,16 @@ button:hover {
 
 .modules-center, .modules-right, .module-left {
   /* border-radius: 15px; */
-  background-color: @base;
+  background-color: @overlay;
+		border-radius:10;
+
 }
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
-  /* border-radius:10; */
-  background-color: @base;
+  border-radius:10;
+  background-color: @overlay
 }
 
 /* If workspaces is the rightmost module, omit right margin */
@@ -206,7 +210,7 @@ label:focus {
   padding-left: 10px;
   padding-right: 10px;
   min-width: 100px;
-  color: @green
+  color: #fbf1c7
 }
 
 #custom-headset-battery {
