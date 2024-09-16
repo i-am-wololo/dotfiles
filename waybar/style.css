@@ -1,5 +1,5 @@
 /* @import "./gruvbox-css/src/gruvbox-dark.css"; */
-@import "./rosepine/rose-pine.css";
+@import "./lackluster/lackluster.css";
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
@@ -12,8 +12,8 @@ window#waybar {
   /* background-color: rgba(43, 48, 59, 0.5); */
   /* background-color: rgba(0, 0, 0, 0); */
   /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-  background-color: @base;
-  color: #fbf1c7;
+  background-color: @grayone;
+  color: @luster;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -31,7 +31,7 @@ window#waybar.solo {
 }
 */
 window#waybar.termite {
-  background-color: #3F3F3F;
+  background-color: @grayone;
 }
 
 window#waybar.chromium {
@@ -57,7 +57,7 @@ button:hover {
   padding: 0 5px;
 
   background-color: transparent;
-  color: #fbf1c7;
+  color: @luster;
 }
 
 #workspaces button:hover {
@@ -66,7 +66,7 @@ button:hover {
 
 
 #workspaces button.focused {
-	color: #458588;
+	color: @special;
 }
 
 #workspaces button.urgent {
@@ -103,19 +103,17 @@ button:hover {
   margin: 0 4px;
 }
 
-.modules-center, .modules-right, .module-left {
-  /* border-radius: 15px; */
-  background-color: @overlay;
-		border-radius:10;
+/*.modules-center, .modules-right, .module-left {*/
+/*  background-color: @graytwo;*/
+/*		border-radius:10;*/
+/**/
+/*}*/
 
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-  border-radius:10;
-  background-color: @overlay
-}
+/*.modules-left > widget:first-child > #workspaces {*/
+/*  margin-left: 0;*/
+/*  border-radius:10;*/
+/*  background-color: @graytwo*/
+/*}*/
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
@@ -131,7 +129,7 @@ button:hover {
 }
 
 #battery.charging, #battery.plugged {
-  color: @mauve;
+  color: @lack;
   /* background-color: #26A65B; */
 }
 
@@ -158,7 +156,7 @@ label:focus {
 #cpu {
   /* background-color: #2ecc71; */
   /* color: #000000; */
-	color: @peach
+	color: @luster
 }
 
 #memory {
@@ -171,12 +169,12 @@ label:focus {
 
 #backlight {
   /* background-color: #90b1b1; */
-	color: @yellow
+	color: @lack
 }
 
 #network {
   /* background-color: #2980b9; */
-	color: @maroon
+	color: @luster
 }
 
 #network.disconnected {

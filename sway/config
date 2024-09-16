@@ -20,13 +20,19 @@ set $term footclient
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu "rofi -show drun"
+set $menu "rofi -theme lackluster -show drun -m -1"
 
+
+# swayfx specific config
+blur enable
+shadows enable
+corner_radius 10
+default_dim_inactive 0.3
 
 # Display configuration
 
 output * {
-	bg ~/.wallpapers/rose_pine_contourline.png fill
+	bg ~/.wallpapers/quake_zenburn fill
 	mode 1920x1080
 
 }
@@ -267,7 +273,7 @@ bar {
 }
 exec /usr/libexec/xfce-polkit
 
-include ~/.config/sway/config.d/rose-pine.conf
+include ~/.config/sway/config.d/lackluster.conf
 include ~/.config/sway/config.d/50-systemd-user.conf
 include ~/.config/sway/config.d/rules.conf
 

@@ -21,7 +21,7 @@
             // "4": "",
              "urgent": "",
              //"focused": "",
-             "default": ""
+             //"default": ""
          }
      },
      "hyprland/workspaces": {
@@ -137,7 +137,7 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-		"full-at": 99, 
+		"full-at": 99,
         "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {
